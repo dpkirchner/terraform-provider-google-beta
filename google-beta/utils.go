@@ -332,7 +332,7 @@ func serviceAccountFQN(serviceAccount string, d TerraformResourceData, config *C
 		return "", err
 	}
 
-	return fmt.Sprintf("projects/-/serviceAccounts/%s@%s.iam.gserviceaccount.com", serviceAccount, project), nil
+	return fmt.Sprintf("projects/%s/serviceAccounts/%s@%s.iam.gserviceaccount.com", project, serviceAccount, project), nil
 }
 
 func paginatedListRequest(project, baseUrl string, config *Config, flattener func(map[string]interface{}) []interface{}) ([]interface{}, error) {
